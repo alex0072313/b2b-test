@@ -23,7 +23,7 @@ CREATE TABLE `phone_numbers` (
 
 Оптимизируйте таблицы и запрос при необходимости.
 
-##Решение
+## Решение
 
 ```
 SELECT `users`.`name` AS `name`, 
@@ -35,7 +35,7 @@ AND TIMESTAMPDIFF(YEAR, FROM_UNIXTIME(`users`.`birth_date`), NOW()) BETWEEN 18 A
 GROUP BY `users`.`id`
 ```
 
-##Оптимизация таблицы
+## Оптимизация таблицы
 
 users.gender - TINYINT, phone_numbers.phone - длина 10
 
@@ -56,7 +56,7 @@ CREATE TABLE `phone_numbers` (
 );
 ```
 
-###Добавим индексы (при условии что данные в таблицах обновляются редко)
+### Добавим индексы (при условии что данные в таблицах обновляются редко)
 
 Для таблицы users
 ```
