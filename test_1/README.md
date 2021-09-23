@@ -58,7 +58,6 @@ CREATE TABLE `phone_numbers` (
 
 ### Добавим индексы (при условии что данные в таблицах обновляются редко)
 
-Для таблицы users
 ```
 CREATE INDEX users_birth_date ON users (birth_date);
 CREATE INDEX users_gender ON users (gender);
