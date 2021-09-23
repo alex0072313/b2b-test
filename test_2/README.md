@@ -33,23 +33,23 @@ function urlFormat(string $url, array $exclude_params = []) {
     $result = null;
 
     if($url_data = parse_url($url)){
-        //parse query string
+        //Парсим строку url
         parse_str($url_data['query'], $url_params);
 
-        //filter
+        //Фильтруем по переданным параметрам
         if($exclude_params){
             $url_params = array_filter($url_params, function ($v) use ($exclude_params) {
                 return !in_array($v, $exclude_params);
             });
         }
 
-        //sort
+        //Сортируем по значению
         asort($url_params);
 
-        //add url param (path)
+        //Добавляем в параметры url (path)
         if(isset($url_data['path'])) $url_params['url'] = $url_data['path'];
 
-        //build url
+        //Строим новый url
         $scheme = $url_data['scheme'] ?? '';
         $host = $url_data['host'] ?? '';
         $params = $url_params ? '/?'.http_build_query($url_params) : '';
